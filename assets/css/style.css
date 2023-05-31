@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+:root{
+    --color-primary-h: 222;
+    --color-primary-s: 93%;
+    --color-primary-l: 48%;
+
+    --color-bg: #c3c8f0;
+}
+
+*::before,
+*::after,
+*
+{
+    box-sizing: border-box;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    cursor:url('../image/cursor.png'), auto;
+}
+
+html,
+body{
+    height: 100%;
+}
+
+html{
+    font-size: 10px;
+}
+
+body{
+    display: grid;
+    place-items: center;
+    background-color: var(--color-bg);
+    transform-style: preserve-3d;
+    perspective: 100rem;
+    overflow: hidden;
+}
+
+.hover-area{
+    position: fixed;
+    inset: 0;
+    width: 20rem;
+    aspect-ratio: 4/2;
+    margin: auto;
+    transform: translateZ(10rem);
+}
+
+.hover-area:hover + .btn{
+    transition-duration: .02s;
+    transition-timing-function: linear;
+}
+
+.hover-area:hover + .btn::after{
+    box-shadow: 0 67px 30px hsla(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) - 25%), 10%);
+}
+
+.btn{
+    --translateX: 0;
+    --translateY: 0;
+    --rotateX: 0;
+    --rotateY: 0;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.8rem;
+    color: #ffffff;
+    background-color: hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
+    padding: 1.5rem 3rem;
+    border: 0;
+    border-radius: 5px;
+    outline: 1px solid transparent;
+    transform: translateX(calc(var(--translateX) * 1px)) translateY(calc(var(--translateY) * 1px)) rotateX(calc(var(--rotateX) * 1deg)) rotateY(calc(var(--rotateY) * 1deg));
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    user-select: none;
+}
+
+.btn__image{
+    border-radius: 50%;
+}
+
+.btn::before,
+.btn::after
+{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) - 15%));
+    border-radius: inherit;
+    outline: inherit;
+}
+
+.btn::before{
+    transform: translateZ(-3px);
+}
+
+.btn::after{
+    transform: translateZ(-6px);
+    transition: box-shadow 0.02s linear;
+
+}
+
