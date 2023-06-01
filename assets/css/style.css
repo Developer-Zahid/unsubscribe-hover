@@ -44,8 +44,8 @@ body{
 .hover-area{
     position: fixed;
     inset: 0;
-    width: 20rem;
-    aspect-ratio: 4/2;
+    width: 24rem;
+    height: 10rem;
     margin: auto;
     transform: translateZ(10rem);
 }

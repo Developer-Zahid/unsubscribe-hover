@@ -5,6 +5,16 @@ function moverButton(event){
     let centerXposition = (window.innerWidth / 2) - event.clientX
     let centerYposition = (window.innerHeight / 2) - event.clientY
     
+    // if(centerXposition > 60){
+    //     centerXposition = 60 - (centerXposition - 60)
+    // }
+    // if(centerXposition < -60){
+    //     centerXposition = -60 - (centerXposition + 60)
+    // }
+
+    centerXposition = (centerXposition > 60) ? 60 - (centerXposition - 60) : centerXposition;
+    centerXposition = (centerXposition < -60) ? -60 - (centerXposition + 60) : centerXposition;
+    
     button.style.setProperty('--translateX', (centerXposition))
     button.style.setProperty('--translateY', centerYposition)
     
